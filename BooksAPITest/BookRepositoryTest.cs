@@ -6,7 +6,7 @@ using System.Linq;
 using Xunit;
 
 
-namespace BookCatalogueMicroservice.Tests
+namespace BooksAPITest
 {
     public class BookRepositoryTests
     {
