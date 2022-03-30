@@ -13,9 +13,11 @@ namespace BooksAPITest
     public class BookControllerTests
     {
         private readonly Mock<IBookRepository> service;
+        private readonly Mock<ILogger<BooksController>> logger;
         public BookControllerTests()
         {
             service = new Mock<IBookRepository>();
+            logger = new Mock<ILogger<BooksController>>();
         }
         [Fact]
         public async void GetBook_BookExistsInRepo()
@@ -24,7 +26,7 @@ namespace BooksAPITest
             // var book = GetSampleBook();
             service.Setup(x => x.Get())
                 .Returns(GetSampleBook);
-            var controller = new BooksController(service.Object);
+            var controller = new BooksController(service.Object, logger.Object);
 
             //act
             var actionResult = controller.GetAllBooks();
@@ -43,7 +45,7 @@ namespace BooksAPITest
             var firstBook = books.Result.ElementAt(0);
             service.Setup(x => x.Get("1"))
                 .Returns((firstBook));
-            var controller = new BooksController(service.Object);
+            var controller = new BooksController(service.Object, logger.Object);
 
             //act
             var actionResult = await controller.GetBooksById("1");
