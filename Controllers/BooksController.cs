@@ -22,7 +22,7 @@ namespace BooksAPI.Controllers
             _logger = logger;
         }
 
-        [HttpGet("allBooks")]
+        [HttpGet("getAllBooks")]
         public async Task<IEnumerable<Book>> GetAllBooks()
         {
             try
@@ -52,7 +52,7 @@ namespace BooksAPI.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpGet("getBookBySearchParam")]
         public async Task<ActionResult<Book>> GetBooksBySearchParam([FromQuery] BookSearchParams book)
         {
             try
@@ -81,7 +81,7 @@ namespace BooksAPI.Controllers
             
         }
 
-        [HttpPost]
+        [HttpPost("addBook")]
         public async Task<ActionResult<Book>> PostBooks([FromBody] Book book)
         {
             try
@@ -97,7 +97,7 @@ namespace BooksAPI.Controllers
             }
         }
 
-        [HttpPut]
+        [HttpPut("updateBook")]
         public async Task<ActionResult> PutBooks(string id, [FromBody] Book book)
         {
             try
@@ -119,7 +119,7 @@ namespace BooksAPI.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("deleteBook/{id}")]
         public async Task<ActionResult> DeleteBooks(string id)
         {
             try
