@@ -22,7 +22,7 @@ namespace BooksAPITest
                 {
                     Title = "Asp.NET Core",
                     Id = "1",
-                    Authors = "Jhon",
+                    Authors = "Jack Jones",
                     Isbn = "11-0001-12-17",
                     PublicationDate = "23-08-2020"
                 });
@@ -30,7 +30,7 @@ namespace BooksAPITest
                 {
                     Title = "Asp.NET Web API",
                     Id = "2",
-                    Authors = "Alexis",
+                    Authors = "Alex Peris",
                     Isbn = "11-0001-12-45",
                     PublicationDate = "28-08-2021"
                 });
@@ -54,13 +54,13 @@ namespace BooksAPITest
             {
                 var repo = new BookRepository(context);
                 var bok = repo.Get("2");
-                Assert.Equal("Alexis", bok.Result.Authors);
+                Assert.Equal("Alex Peris", bok.Result.Authors);
             }
         }
         [Fact]
         public async void InsertBookTest()
         {
-            Book bok = new Book { Id = "3", Title = "WPF", Authors = "Smith", Isbn = "11-0001-12-45", PublicationDate = "28-08-2021" };
+            Book bok = new Book { Id = "3A", Title = "WPF", Authors = "Smith Will", Isbn = "11-0001-12-45", PublicationDate = "28-08-2021" };
             using (var context = new BookContext(options))
             {
                 var repo = new BookRepository(context);
@@ -74,7 +74,7 @@ namespace BooksAPITest
         public async void UpdateBookTest()
         {
             InsertBookTest();
-            Book bok = new Book { Id = "3", Title = "WPF Volumn2", Authors = "Smith", Isbn = "11-0001-12-45", PublicationDate = "28-08-2021" };
+            Book bok = new Book { Id = "3A", Title = "WPF Volumn2", Authors = "Smith Will", Isbn = "11-0001-12-45", PublicationDate = "28-08-2021" };
             using (var context = new BookContext(options))
             {
                 var repo = new BookRepository(context);
@@ -91,7 +91,7 @@ namespace BooksAPITest
             using (var context = new BookContext(options))
             {
                 var repo = new BookRepository(context);
-                await repo.Delete("3");
+                await repo.Delete("3A");
                 var books = repo.Get();
                 Assert.Equal(2, books.ToString().Length);
             }
