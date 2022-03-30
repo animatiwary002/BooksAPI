@@ -15,3 +15,5 @@ This API is developed to
 -Update Book stored in the DB using "HTTP PUT /api/books/v1/updateBook" route
 
 -Delete Book stored in the DB using "HTTP DELETE /api/books/v1/deleteBook/{id}" route
+
+For running the API, Download the source code from BooksAPI repository, Open the solution file in Visual Studio 2019 and click on the IIS EXPRESS button in the tool bar or Press CTRL+F5(to run the solution without debugging)/Press F5(to run the solution with debugging).
