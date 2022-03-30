@@ -1,6 +1,7 @@
 ﻿using BooksAPI.Models;
 using BooksAPI.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -12,15 +13,18 @@ namespace BooksAPI.Controllers
     public class BooksController : ControllerBase
     {
         private readonly IBookRepository _bookRepository;
+        private readonly ILogger<BooksController> _logger;
 
-        public BooksController(IBookRepository bookRepository)
+        public BooksController(IBookRepository bookRepository, ILogger<BooksController> logger)
         {
             _bookRepository = bookRepository;
+            _logger = logger;
         }
 
         [HttpGet("allBooks")]
         public async Task<IEnumerable<Book>> GetAllBooks()
         {
+            _logger.LogTrace(_bookRepository.Get().ToString());
             return await _bookRepository.Get();
         }
 
