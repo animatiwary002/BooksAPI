@@ -5,8 +5,13 @@ Web API developed using VS 2019 and .Net5 to Create, Update, Search, Retrieve an
 This API is developed to 
 
 -Add/Create Book to the DB using "HTTP POST /api/books/v1/addBooks" route
+
 -Get/Retrieve All Books stored in the DB using "HTTP GET /api/books/v1/getAllBooks" route
+
 -Get/Retrieve Book by ID from DB using "HTTP GET /api/books/v1/{id}" route
+
 -Get/Retrieve Book by search parameters like Authors, ISBN, Title using "HTTP GET /api/books/v1/getBookBySearchParam" route
+
 -Update Book stored in the DB using "HTTP PUT /api/books/v1/updateBook" route
+
 -Delete Book stored in the DB using "HTTP DELETE /api/books/v1/deleteBook/{id}" route
