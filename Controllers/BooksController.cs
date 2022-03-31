@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BooksAPI.Controllers
 {
-    [Route("api/[controller]/v1")]
+    [Route("v1/[controller]")]
     [ApiController]
     public class BooksController : ControllerBase
     {
@@ -22,7 +22,7 @@ namespace BooksAPI.Controllers
             _logger = logger;
         }
 
-        [HttpGet("getAllBooks")]
+        [HttpGet]
         public async Task<IEnumerable<Book>> GetAllBooks()
         {
             try
@@ -52,7 +52,7 @@ namespace BooksAPI.Controllers
             }
         }
 
-        [HttpGet("getBookBySearchParam")]
+        [HttpGet("query")]
         public async Task<ActionResult<Book>> GetBooksBySearchParam([FromQuery] BookSearchParams book)
         {
             try
@@ -81,7 +81,7 @@ namespace BooksAPI.Controllers
             
         }
 
-        [HttpPost("addBook")]
+        [HttpPost("add")]
         public async Task<ActionResult<Book>> PostBooks([FromBody] Book book)
         {
             try
@@ -97,7 +97,7 @@ namespace BooksAPI.Controllers
             }
         }
 
-        [HttpPut("updateBook")]
+        [HttpPut("update")]
         public async Task<ActionResult> PutBooks(string id, [FromBody] Book book)
         {
             try
@@ -119,7 +119,7 @@ namespace BooksAPI.Controllers
             }
         }
 
-        [HttpDelete("deleteBook/{id}")]
+        [HttpDelete("delete/{id}")]
         public async Task<ActionResult> DeleteBooks(string id)
         {
             try
